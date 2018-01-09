@@ -60,7 +60,7 @@
     }
 
     section ul {
-
+      list-style: none;
     }
 
     section ul li {
@@ -147,15 +147,6 @@
     // localStorageから値を削除
     function removeData(id){
       store.remove(id)
-    }
-
-    function listSplice(e){
-      // 配列の添字を取得
-      var listNum = e.item.i
-      // お気に入り一覧を格納したlists配列から該当するidの求人データを除外
-      this.lists.splice(listNum, 1)
-      // 上記と同様に総数のカウントから該当のidを除外
-      this.num.splice(listNum,1)
     }
   </script>
 
