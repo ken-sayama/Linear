@@ -121,6 +121,14 @@
     ◇ javascript ロジックを定義
   ***************************************** -->
   <script>
+    // 一覧の総数をカウント
+    var num = []
+    store.each(function(value,key){
+      num.push(key)
+    })
+    this.num = num
+
+    // localStorageの全ての値を取得し、lists配列に格納
     var lists = []
     store.each(function(value,key){
       var getData = store.get(key)
@@ -128,27 +136,26 @@
     })
     this.lists = lists
 
+    // 削除ボタン押下時の処理
     this.removeClick = function(e){
       removeData(e.item.list.id)
       var listNum = e.item.i
       this.lists.splice(listNum, 1)
+      this.num.splice(listNum,1)
     }
 
-    <!-- ****************************************
-      ◇ javascript ロジックを定義
-    ***************************************** -->
-    var num = []
-    store.each(function(value,key){
-      num.push(key)
-    })
-    this.num = num
-
-    <!-- ****************************************
-      ◇ javascript ロジックを定義
-    ***************************************** -->
     // localStorageから値を削除
     function removeData(id){
       store.remove(id)
+    }
+
+    function listSplice(e){
+      // 配列の添字を取得
+      var listNum = e.item.i
+      // お気に入り一覧を格納したlists配列から該当するidの求人データを除外
+      this.lists.splice(listNum, 1)
+      // 上記と同様に総数のカウントから該当のidを除外
+      this.num.splice(listNum,1)
     }
   </script>
 
