@@ -23,10 +23,12 @@
     ◇ HTMLコンポーネント
   ***************************************** -->
   <section>
+    <p>現在お気に入りに登録されている件数は <strong>{this.num.length}</strong> 件です</p>
     <ul class="clearfix">
       <li each={list, i in lists}>
         <a href={list.url}>
-          <img src={list.image} alt="">
+          <img src={list.image} alt="{list.title}">
+          <div>id:{list.id}</div>
           <h4>{list.title}</h4>
           <p>給料：{list.salary}</p>
         </a>
@@ -108,6 +110,10 @@
     table td {
       padding: 10px;
     }
+
+    strong {
+      color: #fc0e49;
+    }
   </style>
 
 
@@ -121,14 +127,21 @@
       lists.push(getData);
     })
     this.lists = lists
-    // console.log(this.lists)
 
     this.removeClick = function(e){
       removeData(e.item.list.id)
-      var list = e.item
-      var index = this.lists.indexOf(list)
-      this.lists.splice(index, 1)
+      var listNum = e.item.i
+      this.lists.splice(listNum, 1)
     }
+
+    <!-- ****************************************
+      ◇ javascript ロジックを定義
+    ***************************************** -->
+    var num = []
+    store.each(function(value,key){
+      num.push(key)
+    })
+    this.num = num
 
     <!-- ****************************************
       ◇ javascript ロジックを定義
