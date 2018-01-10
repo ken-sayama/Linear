@@ -10,6 +10,7 @@
   <script src="./module/store.legacy.min.js" charset="utf-8"></script>
   <script src="./module/riot.compiler.min.js" charset="utf-8"></script>
   <script src="./tags/likeAll.tag" charset="utf-8" type="riot/tag"></script>
+  <script src="./tags/detailLike.tag" charset="utf-8" type="riot/tag"></script>
   <!-- import stylesheets -->
   <link rel="stylesheet" href="./css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/style.css">
@@ -50,10 +51,11 @@
           </tr>
           <tr>
             <th>給与</th>
-            <td>時給 1,000 円～</td>
+            <td class="salary">時給 1,000 円～</td>
           </tr>
         </table>
         <a class="detail_btn" href="https://chourishi-shigoto.com/detail/E1626.html?action=list_btn">詳細を見る</a>
+        <detailLike></detailLike>
       </li>
 
       <li>
@@ -82,10 +84,11 @@
           </tr>
           <tr>
             <th>給与</th>
-            <td>時給 1,500 円～</td>
+            <td class="salary">時給 1,500 円～</td>
           </tr>
         </table>
         <a class="detail_btn" href="https://chourishi-shigoto.com/detail/E1626.html?action=list_btn">詳細を見る</a>
+        <detailLike></detailLike>
       </li>
 
       <li>
@@ -106,25 +109,45 @@
           </tr>
           <tr>
             <th>職種</th>
-            <td>調理師</td>
+            <td class="jobCategory">調理師</td>
           </tr>
           <tr>
             <th>雇用形態</th>
-            <td>正社員</td>
+            <td class="jobStatus">正社員</td>
           </tr>
           <tr>
             <th>給与</th>
-            <td>月給18万〜</td>
+            <td class="salary">月給18万〜</td>
           </tr>
         </table>
         <a class="detail_btn" href="https://chourishi-shigoto.com/detail/E1304.html?action=list_btn">詳細を見る</a>
+        <detailLike></detailLike>
       </li>
 
     </ul>
   </section>
 
   <script>
-    riot.mount('*')
+    // $(function(){
+    //   $('detailLike').click(function(){
+    //     var p = $(this).parent();
+    //     var url = p.children('h3').children('a').attr('href');
+    //     var id = url.match(".+/(.+?)\.[a-z]+([\?#;].*)?$");
+    //     var objects = {
+    //       id: id[1],
+    //       url: url,
+    //       title: p.children('h3').children('a').text(),
+    //       image: p.children('.photo').children('a').children('img').attr('src'),
+    //       salary: p.find('.salary').text(),
+    //       location: p.children('.access').children('dl').children('dd').text(),
+    //       jobCategory: p.find('.jobCategory').text(),
+    //       jobStatus: p.find('.jobStatus').text()
+    //     }
+    //     console.log(objects);
+    //   });
+    //   riot.mount('*')
+    // });
+    //riot.mount('*')
   </script>
 </body>
 </html>

@@ -41,9 +41,7 @@
   <!-- ****************************************
     ◇ このファイル内でのみ適用されるスタイル
   ***************************************** -->
-  <style scoped>
-    :scope {display: block;}
-
+  <style>
     .clearfix:after {
       content: '';
       display: block;
