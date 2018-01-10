@@ -27,29 +27,6 @@ h1 {
   zoom: 1;
 }
 
-.storeLike-link {
-  display: block;
-  width: 200px;
-  height: 50px;
-  border: 1px solid #ccc;
-  text-align: center;
-  position: relative;
-}
-
-.storeLike-link #storeLike-show-counts {
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  display: block;
-  line-height: 30px;
-  position: absolute;
-  top: -15px;
-  right: -15px;
-  background-color: #28ccaf;
-  color: white;
-}
-
 .back {
   margin-top: 30px;
   border: 1px solid #ccc;
@@ -72,31 +49,30 @@ h1 {
   display: block;
 }
 
-#storeLike-show-lists li {
-  width: 220px;
-  /*height: 250px;*/
-  float: left;
-  border: 1px solid #ccc;
+section {
+  width: 500px;
+}
+
+section ul li {
   list-style: none;
-  box-shadow:0px 2px 2px 2px #dbdbdb;
-  border-radius:6px;
-  border:1px solid #ada3a3;
-  font-size: 12px;
-  margin-right: 20px;
+  padding: 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
 }
 
-#storeLike-show-lists li a {
-  display: block;
+section ul li h3 {
+  text-decoration: underline;
 }
 
-#storeLike-show-lists li a img {
-  width: 220px;
+section ul li img {
+  width: 100%;
 }
 
-#storeLike-show-lists li a .inner {
-  padding: 5px;
-}
-
-#storeLike-show-lists li a .inner h5 {
-  font-size: 14px;
+section ul li .detail_btn {
+  /* background-color: #fc0e49; */
+  background-color: #cc0000;
+  border-radius: 50px;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  color: #fff;
 }
