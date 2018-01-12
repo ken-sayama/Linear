@@ -1,3 +1,3 @@
-// 共通するマウントやオブザーバーなどを記述
+// タグの連動
 var obs = riot.observable();
-riot.mount('flash');
+riot.mount('*');

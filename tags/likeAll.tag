@@ -23,7 +23,6 @@
     ◇ HTMLコンポーネント
   ***************************************** -->
   <section>
-    <p>現在お気に入りに登録されている件数は <strong>{this.num.length}</strong> 件です</p>
     <ul class="clearfix">
       <li each={list, i in lists}>
         <a href={list.url}>
@@ -119,12 +118,7 @@
     ◇ javascript ロジックを定義
   ***************************************** -->
   <script>
-    // 一覧の総数をカウント
-    var num = []
-    store.each(function(value,key){
-      num.push(key)
-    })
-    this.num = num
+
 
     // localStorageの全ての値を取得し、lists配列に格納
     var lists = []
@@ -136,10 +130,12 @@
 
     // 削除ボタン押下時の処理
     this.removeClick = function(e){
-      removeData(e.item.list.id)
+      var id = e.item.list.id
+      removeData(id)
       var listNum = e.item.i
       this.lists.splice(listNum, 1)
-      this.num.splice(listNum,1)
+      // オブザーバブルの呼び出し
+      obs.trigger('countMinus', id)
     }
 
     // localStorageから値を削除
