@@ -10,12 +10,14 @@
   <script src="./module/store.legacy.min.js" charset="utf-8"></script>
   <script src="./module/riot.compiler.min.js" charset="utf-8"></script>
   <script src="./tags/likeAll.tag" charset="utf-8" type="riot/tag"></script>
-  <script src="./tags/detailLike.tag" charset="utf-8" type="riot/tag"></script>
+  <!-- <script src="./tags/detailLike.tag" charset="utf-8" type="riot/tag"></script> -->
+  <script src="./tags/count.tag" charset="utf-8" type="riot/tag"></script>
   <!-- import stylesheets -->
   <link rel="stylesheet" href="./css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+  <count></count>
   <likeAll></likeAll>
   <ul>
     <li><a href="./detail/4186.html">4186</a></li>
@@ -26,7 +28,7 @@
   <section>
     <ul>
       <li>
-        <h3><a href="https://chourishi-shigoto.com/detail/E1626.html">にじいろ保育園中板橋（仮称）</a></h3>
+        <h3 ref=""><a href="https://chourishi-shigoto.com/detail/E1626.html">にじいろ保育園中板橋（仮称）</a></h3>
         <div class="access">
           <dl>
             <dt>勤務地</dt>
@@ -147,7 +149,7 @@
     //   });
     //   riot.mount('*')
     // });
-    //riot.mount('*')
+    riot.mount('*')
   </script>
 </body>
 </html>
