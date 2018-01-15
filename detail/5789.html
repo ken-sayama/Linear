@@ -11,30 +11,20 @@
   <script src="../module/store.legacy.min.js" charset="utf-8"></script>
   <script src="../module/riot.compiler.min.js" charset="utf-8"></script>
   <script src="../tags/like.tag" charset="utf-8" type="riot/tag"></script>
+  <script src="../tags/likeAll.tag" charset="utf-8" type="riot/tag"></script>
+  <script src="../tags/count.tag" charset="utf-8" type="riot/tag"></script>
 </head>
 <body>
-  <like></like>
-  <script>
-    $(function(){
-      // ページのURLから判別して、idを取得
-      var id = window.location.href.match(".+/(.+?)\.[a-z]+([\?#;].*)?$");
-
-      // 以下にlocalStorageへ格納したいデータを登録
-      var objects = {
-        id: id[1],
-        url: window.location.href,
-        title: $('.storeLike-title').text(),
-        image : $('#bxslider li').first().children('img').attr('src'),
-        salary: $('.storeLike-salary').text(),
-        location : $('.storeLike-location').text(),
-        jobCategory : $('.storeLike-job-category').text(),
-        jobStatus : $('.storeLike-job-status').text()
-      }
-
-      // 上記で定義したlistsオブジェクトをriotのカスタムタグコンポーネントへ渡す
-      riot.mount('like',objects);
-    });
-  </script>
+  <p>カウント数<count></count></p>
+  <!-- 属性で値を代入する -->
+  <like
+    title="神奈川保育園"
+    image="../images/ales-krivec-188743.jpg"
+    saraly="月給：2,900,000円～3,100,000円"
+    location="神奈川県平塚市"
+    jobCategory="バイオリニスト"
+    jobStatus="動物">
+  </like>
 
   <ul id="bxslider" class="clearfix">
     <li><img src="../images/ales-krivec-188743.jpg" alt=""></li>
@@ -69,7 +59,17 @@
     </table>
   </div>
 
+  <like
+    title="神奈川保育園"
+    image="../images/ales-krivec-188743.jpg"
+    saraly="月給：2,900,000円～3,100,000円"
+    location="神奈川県平塚市"
+    jobCategory="バイオリニスト"
+    jobStatus="動物">
+  </like>
+
   <a class="back" href="../index.html">前のページにもどる</a>
 
+  <script src="../module/app.js" charset="utf-8"></script>
 </body>
 </html>

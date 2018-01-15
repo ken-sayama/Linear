@@ -3,6 +3,7 @@
   - ボタンでの追加・削除に関する
   - ボタンに関するHTML・CSS
   - localStorageにデータを格納
+  ◇ 用途：詳細ページに設置するボタン
 ***************************************** -->
 <like>
 
@@ -96,8 +97,11 @@
     /* ----------------------------------------------
      ◇ 変数
     -----------------------------------------------*/
-    // 呼び出し時に変数objectに代入した値をlistsに代入
+    // likeタグの属性に代入された値をlistsオブジェクトに代入
     this.lists = this.opts
+    // ページのurlとidをlocationより取得して代入
+    this.lists.id = window.location.href.match(".+/(.+?)\.[a-z]+([\?#;].*)?$")[1]
+    this.lists.url = window.location.href
 
     /* ----------------------------------------------
      ◇ 判定用の変数と処理
@@ -109,18 +113,33 @@
     }
 
     /* ----------------------------------------------
+     ◇ オブザーバブル
+    -----------------------------------------------*/
+    var that = this
+    obs.on('addDisplay', function(){
+      that.isShow = false
+      that.update()
+    })
+    obs.on('removeDisplay', function(){
+      that.isShow = true
+      that.update()
+    })
+
+    /* ----------------------------------------------
      ◇ クリックイベント
     -----------------------------------------------*/
     // 追加クリック時のイベント
     this.addClick = function(){
       setData(this.lists)
-      this.isShow = false
+      obs.trigger('addDisplay')
+      obs.trigger('countPlus', this.lists.id)
     }
 
     // 削除クリック時のイベント
     this.removeClick = function(){
       removeData(this.lists)
-      this.isShow = true
+      obs.trigger('removeDisplay')
+      obs.trigger('countMinus', this.lists.id)
     }
 
     /* ----------------------------------------------

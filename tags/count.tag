@@ -12,12 +12,20 @@
     })
     this.countNum = num.length
 
-    // 一覧のお気に入り削除ボタンが押された時に総数をマイナス1する
+    // マイナスがある場合に総数から-1する
     var that = this
     obs.on('countMinus', function(id){
       var listNum = num.indexOf(String(id))
       num.splice(listNum,1)
       that.countNum = that.countNum - 1
+      that.update()
+    })
+
+    // マイナスがある場合に総数から+1する
+    obs.on('countPlus', function(id){
+      var listNum = num.indexOf(String(id))
+      num.splice(listNum,1)
+      that.countNum = that.countNum + 1
       that.update()
     })
   </script>

@@ -118,24 +118,62 @@
     ◇ javascript ロジックを定義
   ***************************************** -->
   <script>
-
-
+    /* ----------------------------------------------
+     ◇ 変数
+    -----------------------------------------------*/
     // localStorageの全ての値を取得し、lists配列に格納
     var lists = []
     store.each(function(value,key){
       var getData = store.get(key)
-      lists.push(getData);
+      lists.push(getData)
     })
     this.lists = lists
 
-    // 削除ボタン押下時の処理
+    /* ----------------------------------------------
+     ◇ オブザーバブル
+    -----------------------------------------------*/
+    var that = this
+    obs.on('addElement', function(e){
+      setData(e)
+      var lists = []
+      store.each(function(value,key){
+        var getData = store.get(key)
+        lists.push(getData)
+      })
+      that.lists = lists
+      that.update()
+    })
+
+    obs.on('removeElement', function(e){
+      var listNum = 0
+      $.each(that.lists,function(i,v){
+        if (v.id == e.id){
+          num = i
+        }
+      })
+      that.lists.splice(listNum,1)
+      that.update()
+    })
+
+    /* ----------------------------------------------
+     ◇ クリックイベント
+    -----------------------------------------------*/
     this.removeClick = function(e){
       var id = e.item.list.id
-      removeData(id)
       var listNum = e.item.i
+      removeData(id)
       this.lists.splice(listNum, 1)
       // オブザーバブルの呼び出し
       obs.trigger('countMinus', id)
+      obs.trigger('changeDetailLikeBtn')
+    }
+
+    /* ----------------------------------------------
+     ◇ データ制御
+    -----------------------------------------------*/
+    // localStorageに値を格納
+    function setData(lists){
+      store.set(lists.id, lists)
     }
 
     // localStorageから値を削除

@@ -2,7 +2,7 @@
   <!-- ****************************************
   ◇ HTMLコンポーネント
   ***************************************** -->
-  <button onclick={add}>お気に入りに追加</button>
+  <button onclick="{isShow ? addClick : removeClick}"><i class="fa {isShow ? 'fa-star-o' : 'fa-star'}"></i>{isShow ? 'お気に入りに追加' : 'お気に入りから削除'}</button>
 
   <!-- ****************************************
     ◇ デバッグ時に登録できるオブジェクトを表組みで表示
@@ -87,8 +87,61 @@
     ◇ javascript ロジックを定義
   ***************************************** -->
   <script>
-    add(e){
-      console.log(this.opts)
+    /* ----------------------------------------------
+     ◇ 変数
+    -----------------------------------------------*/
+    // タグマウント時の属性値を取得
+    this.lists = this.opts
+    // idをurlより抽出
+    this.lists.id = this.lists.url.match(".+/(.+?)\.[a-z]+([\?#;].*)?$")[1]
+
+    /* ----------------------------------------------
+     ◇ 判定用の変数と処理
+    -----------------------------------------------*/
+    this.isShow = false
+    if(store.get(this.lists.id) == undefined){
+      this.isShow = true
+    }
+
+    /* ----------------------------------------------
+     ◇ オブザーバブル
+    -----------------------------------------------*/
+    var that = this
+    obs.on('changeDetailLikeBtn', function(){
+      that.isShow = true
+      that.update()
+    })
+
+    /* ----------------------------------------------
+     ◇ クリックイベント
+    -----------------------------------------------*/
+    // 追加クリック時のイベント
+    this.addClick = function(){
+      setData(this.lists)
+      this.isShow = false
+      obs.trigger('countPlus', this.lists.id)
+      obs.trigger('addElement', this.lists)
+    }
+
+    // 削除クリック時のイベント
+    this.removeClick = function(){
+      removeData(this.lists)
+      this.isShow = true
+      obs.trigger('removeElement',this.lists)
+      obs.trigger('countMinus', this.lists.id)
+    }
+
+    /* ----------------------------------------------
+     ◇ データ制御
+    -----------------------------------------------*/
+    // localStorageに値を格納
+    function setData(lists){
+      store.set(lists.id, lists)
+    }
+
+    // localStorageから値を削除
+    function removeData(lists){
+      store.remove(lists.id)
     }
   </script>
 
