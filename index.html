@@ -117,7 +117,7 @@
             <th>雇用形態</th>
             <td class="jobStatus">正社員</td>
           </tr>
-          <tr>
+          <tr ref="hoge">
             <th>給与</th>
             <td class="salary">月給18万〜</td>
           </tr>
@@ -128,28 +128,6 @@
 
     </ul>
   </section> -->
-
-  <!-- <script>
-    $(function(){
-      var objects = {}
-      $('detailLike').click(function(){
-        var p = $(this).parent();
-        var url = p.children('h3').children('a').attr('href');
-        var id = url.match(".+/(.+?)\.[a-z]+([\?#;].*)?$");
-        var objects = {
-          id: id[1],
-          url: url,
-          title: p.children('h3').children('a').text(),
-          image: p.children('.photo').children('a').children('img').attr('src'),
-          salary: p.find('.salary').text(),
-          location: p.children('.access').children('dl').children('dd').text(),
-          jobCategory: p.find('.jobCategory').text(),
-          jobStatus: p.find('.jobStatus').text()
-        }
-        riot.mount('detailLike',objects);
-      });
-    });
-  </script> -->
   <script src="./module/app.js" charset="utf-8"></script>
 </body>
 </html>

@@ -17,6 +17,10 @@ h1 {
   margin-bottom: 30px;
 }
 
+ul li {
+  list-style: none;
+}
+
 .clearfix:after {
   content: '';
   display: block;
