@@ -8,7 +8,9 @@
     // 一覧の総数をカウント
     var num = []
     store.each(function(value,key){
-      num.push(key)
+      if(key == value.id){
+        num.push(key)
+      }
     })
     this.countNum = num.length
 

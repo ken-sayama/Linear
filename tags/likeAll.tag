@@ -125,7 +125,9 @@
     var lists = []
     store.each(function(value,key){
       var getData = store.get(key)
-      lists.push(getData)
+      if(key == value.id){
+        lists.push(getData)
+      }
     })
     this.lists = lists
 
@@ -138,7 +140,9 @@
       var lists = []
       store.each(function(value,key){
         var getData = store.get(key)
-        lists.push(getData)
+        if(key == value.id){
+          lists.push(getData)
+        }
       })
       that.lists = lists
       that.update()
