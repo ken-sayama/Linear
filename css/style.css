@@ -89,3 +89,18 @@ section ul li .detail_btn {
   box-sizing: border-box;
   color: #fff;
 }
+
+footer {
+  border-top: 1px solid #ccc;
+  width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+footer p {
+  text-align: center;
+}
+
+footer p a {
+  color: #999;
+}
