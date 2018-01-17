@@ -1,4 +1,4 @@
-<detailLike>
+<multiLike>
   <!-- ****************************************
   ◇ HTMLコンポーネント
   ***************************************** -->
@@ -35,6 +35,7 @@
       background-color: #fc0e49;
       cursor: pointer;
       margin-bottom: 10px;
+      border: none;
     }
 
     button:hover {
@@ -142,4 +143,4 @@
     }
   </script>
 
-</detailLike>
+</multiLike>
