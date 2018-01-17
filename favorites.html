@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>localStorageOnRiot</title>
+  <!-- import modules -->
+  <script src="./modules/store.legacy.min.js" charset="utf-8"></script>
+  <script src="./modules/riot.compiler.min.js" charset="utf-8"></script>
+  <script src="./tags/like.tag" charset="utf-8" type="riot/tag"></script>
+  <script src="./tags/lists.tag" charset="utf-8" type="riot/tag"></script>
+  <script src="./tags/multiLike.tag" charset="utf-8" type="riot/tag"></script>
+  <script src="./tags/count.tag" charset="utf-8" type="riot/tag"></script>
+  <!-- import stylesheets -->
+  <link rel="stylesheet" href="./css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div id="wrapper">
+    <p>お気に入りに追加された数：<count></count></p>
+    <lists></lists>
+  </div>
+  <script src="./modules/app.js" charset="utf-8"></script>
+</body>
+</html>

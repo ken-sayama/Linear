@@ -4,8 +4,7 @@
 }
 
 body {
-  width: 1000px;
-  margin: 40px auto;
+  background-color: #fafafa;
 }
 
 a {
@@ -19,6 +18,7 @@ h1 {
 
 ul li {
   list-style: none;
+  text-decoration: underline;
 }
 
 .clearfix:after {
@@ -29,6 +29,11 @@ ul li {
 
 .clearfix {
   zoom: 1;
+}
+
+#wrapper {
+  width: 1000px;
+  margin: 40px auto;
 }
 
 .back {
@@ -61,7 +66,11 @@ section ul li {
   list-style: none;
   padding: 15px;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 2px 2px 4px gray;
+  margin-bottom: 30px;
+  text-decoration: none;
 }
 
 section ul li h3 {

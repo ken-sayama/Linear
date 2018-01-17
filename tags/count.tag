@@ -4,6 +4,13 @@
   ***************************************** -->
   <span>{countNum}</span>
 
+  <style>
+    span {
+      color: #fc0e49;
+      font-weight: bold;
+    }
+  </style>
+
   <script>
     // 一覧の総数をカウント
     var num = []

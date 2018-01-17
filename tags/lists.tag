@@ -65,11 +65,36 @@
       float: left;
       box-sizing: border-box;
       border: 1px solid #ccc;
+      margin-right: 20px;
+      border-radius: 4px;
+      background-color: #fff;
+      box-shadow: 2px 2px 4px gray;
+      height: 340px;
+      margin-bottom: 30px;
+    }
+
+    section ul li:nth-child(3n){
+      margin-right: 0;
     }
 
     section ul li a img {
       width: 100%;
       max-height: 200px;
+    }
+
+    section ul li button {
+      color: #fff;
+      width: 200px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      background-color: #fc0e49;
+      cursor: pointer;
+      margin-bottom: 10px;
+      border: none;
+    }
+
+    section ul li button:hover {
+      opacity: 0.7;
     }
 
     table {
