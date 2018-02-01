@@ -36,6 +36,7 @@
       this.isZero = true
     }
 
+    // お気に入りリストから削除をされて0になったら表示させる
     var that = this
     obs.on('numMinus', function(id){
       var listNum = num.indexOf(String(id))
@@ -47,10 +48,6 @@
       }
       that.update()
     })
-
-
-
   </script>
-
 
 </noLists>
