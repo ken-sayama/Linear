@@ -36,6 +36,7 @@
       </li>
     </ul>
   </section>
+  <noLists></noLists>
 
   <!-- ****************************************
     ◇ このファイル内でのみ適用されるスタイル
@@ -194,6 +195,7 @@
       this.lists.splice(listNum, 1)
       // オブザーバブルの呼び出し
       obs.trigger('countMinus', id)
+      obs.trigger('numMinus', id)
       obs.trigger('changeDetailLikeBtn')
     }
 
