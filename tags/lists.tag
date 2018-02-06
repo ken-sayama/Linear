@@ -33,6 +33,7 @@
         </a>
         <button onclick={parent.removeClick}>お気に入りから削除</button>
         <!-- <a href="#" onclick={ clickItem.bind(this, list.id) }>{ list.name }</a> -->
+        <check name="list" id="{list.id}"></check>
       </li>
     </ul>
   </section>
